@@ -1,0 +1,3 @@
+kustomize:
+  # Set the revision to use for the yel environment
+  revision: git+sha1

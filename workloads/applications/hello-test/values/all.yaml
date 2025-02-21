@@ -1,0 +1,5 @@
+serviceAccount:
+  # Annotations to add to the service account
+  annotations:
+    test: hello
+    include: please
