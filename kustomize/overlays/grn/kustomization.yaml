@@ -14,7 +14,7 @@ patches:
         value: https://github.com/gambol99/eks-platform.git
       - op: replace
         path: /spec/source/targetRevision
-        value: dev
+        value: HEAD
       - op: replace
         path: /spec/source/kustomize
         value:
