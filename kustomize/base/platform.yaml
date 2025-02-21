@@ -39,16 +39,13 @@ spec:
     automated:
       prune: true
       selfHeal: true
-      syncInterval: 1m
     retry:
       limit: 20
       backoff:
-        duration: 5s
-        factor: 2
-        maxDuration: 3m
-    syncOptions:
-      - AutoSync.allowEmpty=true
-
-      backoff:
         duration: 20s
         maxDuration: 5m
+    syncOptions:
+      - AutoSync.allowEmpty=true
+      - CreateNamespace=false
+      - ServerSideApply=true
+      - ApplyOutOfSyncOnly=true
