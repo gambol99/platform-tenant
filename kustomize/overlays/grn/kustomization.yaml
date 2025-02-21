@@ -4,19 +4,28 @@ kind: Kustomization
 resources:
   - ../../base
 
-configMapGenerator:
-  - name: platform-config
-    namespace: argocd
-    options:
-      disableNameSuffixHash: true
-    files:
-      - platform.yaml
-
 patches:
   - target:
       kind: Application
-      name: platform
+      name: source-platform
     patch: |
       - op: replace
         path: /spec/source/repoURL
         value: https://github.com/gambol99/eks-tenant.git
+      - op: replace
+        path: /spec/source/targetRevision
+        value: dev
+      - op: replace
+        path: /spec/source/kustomize
+        value:
+          patches:
+            - target:
+                kind: Application
+                name: sync-platform
+              patch: |
+                - op: replace
+                  path: /spec/generators/0/git/repoURL
+                  value: https://github.com/gambol99/eks-tenant.git
+                - op: replace
+                  path: /spec/generators/0/git/files/0/path
+                  value: clusters/grn.yaml

@@ -2,17 +2,32 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: platform
+  name: source-platform
   namespace: argocd
 spec:
   ## The project to use for the application
   project: default
-
-  ## The source to use for the application
+  ## The source is patched in the overlay
   source:
-    repoURL: https://github.com/gambol99/eks-platform.git
+    repoURL: PLATFORM_REPO
     targetRevision: HEAD
-    path: overlays/release
+    path: kustomize/base
+    ##
+    # We push the patches into the overlay, so we don't need allowing
+    # for the git reference to trickle down into the platform.
+    #
+    #    patches:
+    #      - target:
+    #          kind: Application
+    #          name: sync-platform
+    #        patch: |
+    #          - op: replace
+    #            path: /spec/generators/0/git/repoURL
+    #            value: https://github.com/gambol99/eks-tenant.git
+    #          - op: replace
+    #            path: /spec/generators/0/git/files/0/path
+    #            value: clusters/grn.yaml
+    kustomize: {}
 
   ## The destination to deploy the resources
   destination:
@@ -24,3 +39,7 @@ spec:
     automated:
       prune: true
       selfHeal: true
+    retry:
+      backoff:
+        duration: 20s
+        maxDuration: 5m
