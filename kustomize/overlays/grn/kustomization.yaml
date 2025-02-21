@@ -11,7 +11,7 @@ patches:
     patch: |
       - op: replace
         path: /spec/source/repoURL
-        value: https://github.com/gambol99/eks-tenant.git
+        value: https://github.com/gambol99/eks-platform.git
       - op: replace
         path: /spec/source/targetRevision
         value: dev

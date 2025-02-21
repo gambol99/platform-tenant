@@ -11,7 +11,7 @@ spec:
   source:
     repoURL: PLATFORM_REPO
     targetRevision: HEAD
-    path: kustomize/base
+    path: kustomize/overlays/release
     ##
     # We push the patches into the overlay, so we don't need allowing
     # for the git reference to trickle down into the platform.
