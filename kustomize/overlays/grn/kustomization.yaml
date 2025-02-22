@@ -7,7 +7,7 @@ resources:
 patches:
   - target:
       kind: Application
-      name: source-platform
+      name: bootstrap
     patch: |
       - op: replace
         path: /spec/source/repoURL

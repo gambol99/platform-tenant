@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: source-platform
+  name: bootstrap
   namespace: argocd
 spec:
   ## The project to use for the application
