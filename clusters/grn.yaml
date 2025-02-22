@@ -11,9 +11,9 @@ tenant_revision: HEAD
 ## The cost center to use for the tenant cluster
 tenant_cost_center: "123456"
 ## The repository containing the platform configuration
-platform_repository: https://github.com/gambol99/eks-platform.git
+platform_repository: https://github.com/gambol99/kubernetes-platform.git
 ## The revision to use for the platform repository
-platform_revision: dev
+platform_revision: HEAD
 ## The path to the kustomize overlay to use for the tenant cluster
 platform_path: overlays/release
 ## We use labels to enable/disable features in the tenant cluster

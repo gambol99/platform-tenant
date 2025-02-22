@@ -9,7 +9,7 @@ tenant_repository: https://github.com/gambol99/eks-tenant.git
 ## The revision to use for the tenant repository
 tenant_revision: HEAD
 ## The repository containing the platform configuration
-platform_repository: https://github.com/gambol99/eks-platform.git
+platform_repository: https://github.com/gambol99/kubernetes-platform.git
 ## The revision to use for the platform repository
 platform_revision: HEAD
 ## The path to the kustomize overlay to use for the tenant cluster
