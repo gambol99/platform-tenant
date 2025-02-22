@@ -13,7 +13,7 @@ tenant_cost_center: "123456"
 ## The repository containing the platform configuration
 platform_repository: https://github.com/gambol99/eks-platform.git
 ## The revision to use for the platform repository
-platform_revision: dev
+platform_revision: v0.0.2
 ## The path to the kustomize overlay to use for the tenant cluster
 platform_path: overlays/release
 ## We use labels to enable/disable features in the tenant cluster
