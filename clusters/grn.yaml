@@ -19,7 +19,7 @@ platform_path: overlays/release
 ## We use labels to enable/disable features in the tenant cluster
 labels:
   enable_argocd: "true"
-  enable_cert_manager: "false"
+  enable_cert_manager: "true"
   enable_ebs_driver: "true"
   enable_efs_driver: "true"
   enable_external_dns: "false"
