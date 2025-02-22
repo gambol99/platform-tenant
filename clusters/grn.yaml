@@ -20,7 +20,7 @@ labels:
   enable_cert_manager: "true"
   enable_ebs_driver: "true"
   enable_efs_driver: "true"
-  enable_external_dns: "true"
+  enable_external_dns: "false"
   enable_kyverno: "true"
   enable_pod_identity: "true"
   enable_external_secrets: "true"
