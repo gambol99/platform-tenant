@@ -15,19 +15,17 @@ patches:
       - op: replace
         path: /spec/source/targetRevision
         value: dev
-
-#      - op: replace
-#        path: /spec/source/kustomize
-#        value:
-#          patches:
-#            - target:
-#                kind: ApplicationSet
-#                name: sync-platform
-#              patch: |
-#                - op: replace
-#                  path: /spec/generators/0/git/repoURL
-#                  value: https://github.com/gambol99/eks-tenant.git
-#                - op: replace
-#                  path: /spec/generators/0/git/files/0/path
-#                  value: clusters/grn.yaml
-#
+      - op: replace
+        path: /spec/source/kustomize
+        value:
+          patches:
+            - target:
+                kind: ApplicationSet
+                name: sync-platform
+              patch: |
+                - op: replace
+                  path: /spec/generators/0/git/repoURL
+                  value: https://github.com/gambol99/eks-tenant.git
+                - op: replace
+                  path: /spec/generators/0/git/files/0/path
+                  value: clusters/grn.yaml
