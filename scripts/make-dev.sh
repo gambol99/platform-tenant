@@ -15,11 +15,8 @@ setup_cluster() {
   # Create the namespace 
   kubectl create namespace argocd --context "${cluster_context}" 2>/dev/null || true
   # Apply the tenant configuration for the specific cluster
-  echo "Applying tenant configuration for ${cluster_name}"
-  ## Create a symlink to the kustomize directory
-  cp clusters/${cluster_name}.yaml kustomize/overlays/${cluster_name}/platform.yaml
-  # Apply the tenant configuration for the specific cluster
-  kubectl kustomize kustomize/overlays/${cluster_name} --enable-helm=true --context "${cluster_context}" | kubectl apply -f -
+  kubectl kustomize kustomize/overlays/${cluster_name} \
+    --enable-helm=true --context "${cluster_context}" | kubectl apply -f -
 }
 
 # Main execution
