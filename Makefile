@@ -1,23 +1,33 @@
-# Makefile for the development clusters
+# Makefile for the clusters
 
 default: dev
 
 .PHONY: dev clean
 dev:
-	@./scripts/make-dev.sh
+	@echo "--> Provisioning development environment..."
+	@./scripts/make-environment.sh --cluster-name dev 
+
+prod:
+	@echo "--> Provisioning production environment..."
+	@./scripts/make-environment.sh --cluster-name prod
+
+destroy-dev:
+	@echo "--> Destroying development environment..."
+	@./scripts/make-environment.sh --cluster-name dev --destroy
+
+destroy-prod:
+	@echo "--> Destroying production environment..."
+	@./scripts/make-environment.sh --cluster-name prod --destroy
+
+destroy:
+	@(MAKE) destroy-dev 
+	@(MAKE) destroy-prod
 
 clean:
-	@echo "Deleting development clusters..."
-	@kind delete cluster --name grn >/dev/null || true
+	@echo "--> Cleaning up..."
+	@rm -rf terraform/.terraform
+	@rm -rf terraform/.terraform.lock.hcl
+	@(MAKE) destroy
+	
 
-lint: 
-	@echo "Linting the tenant cluster..."
-	$(MAKE) lint-platform-applications
-
-lint-plaform-applications:
-	@echo "Linting the platform applications..."
-	@kubeconform \
-		-ignore-missing-schemas \
-		-schema-location https://raw.githubusercontent.com/argoproj/argo-cd/master/manifests/kustomize/base/kustomize.yaml \
-		-f kustomize/base
 
