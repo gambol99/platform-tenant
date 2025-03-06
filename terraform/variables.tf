@@ -59,14 +59,14 @@ variable "argocd_repositories" {
     secret = optional(string, null)
     ## The secret manager ARN to use for the secret
     secret_manager_arn = optional(string, null)
+    ## An optional SSH private key for the repository
+    ssh_private_key = optional(string, null)
     ## The URL of the repository
     url = string
     ## An optional username for the repository
     username = optional(string, null)
     ## An optional password for the repository
     password = optional(string, null)
-    ## An optional SSH private key for the repository
-    ssh_private_key = optional(string, null)
   }))
   default = {}
 }
