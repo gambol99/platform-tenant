@@ -1,11 +1,15 @@
 # EKS Tenant Example Repository
 
+## Overview
+
 This repository provides an example implementation of a multi-tenant EKS cluster setup. It demonstrates how to:
 
 - Deploy and manage tenant-specific EKS clusters
 - Configure cluster settings via YAML definitions in `clusters/`
 - Apply infrastructure as code using Terraform
 - Bootstrap platform components from a tenant repository
+
+You can see view the platform here: https://github.com/gambol99/kubernetes-platform
 
 ## Structure
 
