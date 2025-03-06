@@ -14,6 +14,12 @@ variable "cluster_name" {
   type        = string
 }
 
+variable "cluster_type" {
+  description = "The type of cluster to create"
+  type        = string
+  default     = "standalone"
+}
+
 variable "tenant_repository" {
   description = "The repository to use for the tenant"
   type        = string
