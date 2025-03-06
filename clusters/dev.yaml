@@ -27,4 +27,4 @@ labels:
   enable_external_secrets: "true"
   enable_kro: "true"
   enable_kyverno: "true"
-  enable_metrics_server: "false"
+  enable_metrics_server: "true"
