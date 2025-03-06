@@ -10,6 +10,9 @@ build/
 .env.*.local
 .terraform/
 .terraform.lock.hcl
+.terraform.tfstate.lock.info
+terraform.tfstate
+terraform.tfstate.backup
 
 # IDE and editor files
 .idea/
