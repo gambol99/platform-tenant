@@ -9,7 +9,7 @@ tenant_repository: https://github.com/gambol99/platform-tenant.git
 ## The revision to use for the tenant repository
 tenant_revision: HEAD
 ## The path inside the tenant repository to use for the tenant cluster
-tenant_path: clusters/hub
+tenant_path: clusters/hub/
 ## The repository containing the platform configuration
 platform_repository: https://github.com/gambol99/kubernetes-platform.git
 ## The revision to use for the platform repository
@@ -29,5 +29,9 @@ labels:
   enable_kyverno: "true"
   enable_metrics_server: "true"
 ## Cluster authentication
-#cluster_authentication:
-#  config:
+cluster_authentication:
+  server: https://8E11487128E63B0E0A2B713E40103766.gr7.eu-west-2.eks.amazonaws.com
+  config:
+    awsAuthConfig:
+      clusterName: spoke
+      roleARN:
