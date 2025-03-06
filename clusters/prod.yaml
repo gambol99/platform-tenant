@@ -13,7 +13,7 @@ tenant_path: ""
 ## The repository containing the platform configuration
 platform_repository: https://github.com/gambol99/kubernetes-platform.git
 ## The revision to use for the platform repository
-platform_revision: v0.1.0
+platform_revision: v0.1.4
 ## The type of cluster we are (standalone, spoke or hub)
 cluster_type: standalone
 ## The name of the tenant
@@ -21,11 +21,8 @@ tenant: tenant_name
 ## We use labels to enable/disable features in the tenant cluster
 labels:
   enable_cert_manager: "true"
-  enable_ebs_driver: "true"
-  enable_efs_driver: "true"
   enable_external_dns: "false"
   enable_external_secrets: "true"
   enable_kro: "true"
   enable_kyverno: "true"
   enable_metrics_server: "false"
-  enable_pod_identity: "true"
