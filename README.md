@@ -14,6 +14,7 @@ You can see view the platform here: https://github.com/gambol99/kubernetes-platf
 ## Structure
 
 - `clusters/` - Contains cluster configuration YAML files
+- `clusters/hub` - Contains the cluster definitions for a hub and spoke deployment model.
 - `workloads` - Contains the application workloads to deploy to the clusters.
 - `terraform/` - Infrastructure code for provisioning EKS clusters
   - Creates VPC, subnets, and EKS cluster
