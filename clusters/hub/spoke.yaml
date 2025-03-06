@@ -1,5 +1,5 @@
 ## The name of the tenant cluster
-cluster_name: dev
+cluster_name: spoke
 ## The cloud vendor to use for the tenant cluster
 cloud_vendor: aws
 ## The environment to use for the tenant cluster
@@ -9,7 +9,7 @@ tenant_repository: https://github.com/gambol99/platform-tenant.git
 ## The revision to use for the tenant repository
 tenant_revision: HEAD
 ## The path inside the tenant repository to use for the tenant cluster
-tenant_path: ""
+tenant_path: clusters/hub
 ## The repository containing the platform configuration
 platform_repository: https://github.com/gambol99/kubernetes-platform.git
 ## The revision to use for the platform repository
@@ -17,7 +17,7 @@ platform_revision: HEAD
 ## The path inside the platform repository
 platform_path: ""
 ## The type of cluster we are (standalone, spoke or hub)
-cluster_type: standalone
+cluster_type: spoke
 ## The name of the tenant
 tenant: tenant_name
 ## We use labels to enable/disable features in the tenant cluster
@@ -28,3 +28,6 @@ labels:
   enable_kro: "true"
   enable_kyverno: "true"
   enable_metrics_server: "true"
+## Cluster authentication
+#cluster_authentication:
+#  config:

@@ -9,7 +9,13 @@ variable "sso_role_name" {
   type        = string
 }
 
-variable "cluster_name" {
+variable "hub_account_id" {
+  description = "When using a hub deployment options, this is the account where argocd is running"
+  type        = string
+  default     = null
+}
+
+variable "cluster_path" {
   description = "The name of the cluster"
   type        = string
 }

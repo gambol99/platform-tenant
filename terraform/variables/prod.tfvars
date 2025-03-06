@@ -1,8 +1,8 @@
-
-cluster_name = "prod"
+## Path to the cluster definition
+cluster_path = "../clusters/prod.yaml"
 ## The SSO identity role
 sso_role_name = "AWSReservedSSO_Administrator_fbb916977087a86f"
-
+## Tags to apply to the EKS cluster
 tags = {
   Environment = "Production"
   Product     = "EKS"
