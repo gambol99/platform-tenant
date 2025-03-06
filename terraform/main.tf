@@ -1,7 +1,8 @@
 
 ## Provision a EKS cluster for the hub
 module "eks" {
-  source = "github.com/gambol99/terraform-aws-eks?ref=main"
+  #source = "github.com/gambol99/terraform-aws-eks?ref=main"
+  source = "../../terraform-aws-eks"
 
   access_entries                 = local.access_entries
   cluster_enabled_log_types      = null
@@ -17,14 +18,17 @@ module "eks" {
 
 ## Provision and bootstrap the platform using an tenant repository
 module "platform" {
-  source = "github.com/gambol99/terraform-aws-eks//modules/platform?ref=main"
+  #source = "github.com/gambol99/terraform-aws-eks//modules/platform?ref=main"
+  source = "../../terraform-aws-eks/modules/platform"
 
+  ## Name of the cluster
+  cluster_name = var.cluster_name
   # The type of cluster
   cluster_type = var.cluster_type
   # The location of the tenant repository
   tenant_repository = var.tenant_repository
   # You pretty much always want to use the HEAD
-  tenant_branch = var.tenant_branch
+  tenant_revision = var.tenant_revision
 
   depends_on = [
     module.eks

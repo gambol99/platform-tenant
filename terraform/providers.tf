@@ -1,11 +1,11 @@
 
 provider "aws" {}
 
-## Provision the helm provider 
+## Provision the helm provider
 provider "helm" {
   kubernetes {
     host                   = module.eks.cluster_endpoint
-    cluster_ca_certificate = module.eks.cluster_certificate_authority
+    cluster_ca_certificate = module.eks.cluster_certificate_authority_data
     exec {
       api_version = "client.authentication.k8s.io/v1alpha1"
       command     = "aws"
@@ -14,10 +14,10 @@ provider "helm" {
   }
 }
 
-## Provision the kubectl provider 
+## Provision the kubectl provider
 provider "kubectl" {
   apply_retry_count      = 3
-  cluster_ca_certificate = base64decode(module.eks.cluster_certificate_authority)
+  cluster_ca_certificate = base64decode(module.eks.cluster_certificate_authority_data)
   host                   = module.eks.cluster_endpoint
   load_config_file       = false
 

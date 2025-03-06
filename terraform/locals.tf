@@ -4,6 +4,8 @@ locals {
   account_id = data.aws_caller_identity.current.account_id
   ## The SSO Administrator role ARN
   sso_role_name = var.sso_role_name
+  ## Collection of tags to apply to resources
+  tags = merge(var.tags, {})
 
   ## EKS Access Entries for authentication
   access_entries = {

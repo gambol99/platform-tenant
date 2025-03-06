@@ -26,10 +26,10 @@ variable "tenant_repository" {
   default     = "https://github.com/gambol99/eks-tenant"
 }
 
-variable "tenant_branch" {
+variable "tenant_revision" {
   description = "The branch to use for the tenant"
   type        = string
-  default     = "main"
+  default     = "HEAD"
 }
 
 variable "private_subnet_netmask" {
@@ -67,16 +67,3 @@ variable "cluster_endpoint_public_access" {
   type        = bool
   default     = true
 }
-
-variable "private_subnet_netmask" {
-  description = "The netmask for the private subnets"
-  type        = number
-  default     = 24
-}
-
-variable "public_subnet_netmask" {
-  description = "The netmask for the public subnets"
-  type        = number
-  default     = 24
-}
-
