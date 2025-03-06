@@ -14,24 +14,6 @@ variable "cluster_name" {
   type        = string
 }
 
-variable "cluster_type" {
-  description = "The type of cluster to create"
-  type        = string
-  default     = "standalone"
-}
-
-variable "tenant_repository" {
-  description = "The repository to use for the tenant"
-  type        = string
-  default     = "https://github.com/gambol99/eks-tenant"
-}
-
-variable "tenant_revision" {
-  description = "The branch to use for the tenant"
-  type        = string
-  default     = "HEAD"
-}
-
 variable "private_subnet_netmask" {
   description = "The netmask for the private subnets"
   type        = number
