@@ -5,7 +5,7 @@ cloud_vendor: aws
 ## The environment to use for the tenant cluster
 environment: production
 ## The repository containing the tenant configuration
-tenant_repository: https://github.com/gambol99/kubernetes-platform.git
+tenant_repository: https://github.com/gambol99/platform-tenant.git
 ## The revision to use for the tenant repository
 tenant_revision: main
 ## The path inside the tenant repository to use for the tenant cluster
