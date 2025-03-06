@@ -8,7 +8,6 @@ build/
 .env
 .env.local
 .env.*.local
-*.tfvars
 .terraform/
 .terraform.lock.hcl
 
@@ -33,5 +32,5 @@ temp/
 .DS_Store
 Thumbs.db
 
-# Secrets 
+# Secrets
 kustomize/base/credentials.yaml
