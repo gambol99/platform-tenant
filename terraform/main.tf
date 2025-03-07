@@ -22,8 +22,7 @@ locals {
 
 ## Provision a EKS cluster for the hub
 module "eks" {
-  #source = "github.com/gambol99/terraform-aws-eks?ref=main"
-  source = "../../terraform-aws-eks"
+  source = "github.com/gambol99/terraform-aws-eks?ref=main"
 
   access_entries                 = local.access_entries
   cluster_enabled_log_types      = null
@@ -43,9 +42,8 @@ module "eks" {
 
 ## Provision and bootstrap the platform using an tenant repository
 module "platform" {
-  count = local.enable_platform ? 1 : 0
-  #source = "github.com/gambol99/terraform-aws-eks//modules/platform?ref=main"
-  source = "../../terraform-aws-eks/modules/platform"
+  count  = local.enable_platform ? 1 : 0
+  source = "github.com/gambol99/terraform-aws-eks//modules/platform?ref=main"
 
   ## Name of the cluster
   cluster_name = local.cluster_name
