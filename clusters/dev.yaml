@@ -13,7 +13,7 @@ tenant_path: ""
 ## The repository containing the platform configuration
 platform_repository: https://github.com/gambol99/kubernetes-platform.git
 ## The revision to use for the platform repository
-platform_revision: HEAD
+platform_revision: v0.2.1
 ## The path inside the platform repository
 platform_path: ""
 ## The type of cluster we are (standalone, spoke or hub)
