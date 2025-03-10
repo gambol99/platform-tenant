@@ -22,7 +22,7 @@ locals {
 
 ## Provision a EKS cluster for the hub
 module "eks" {
-  source = "github.com/gambol99/terraform-aws-eks?ref=v0.1.1"
+  source = "github.com/gambol99/terraform-aws-eks?ref=v0.2.1"
 
   access_entries                 = local.access_entries
   cluster_enabled_log_types      = null
