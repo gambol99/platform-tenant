@@ -3,28 +3,36 @@ cluster_name: dev
 ## The cloud vendor to use for the tenant cluster
 cloud_vendor: aws
 ## The environment to use for the tenant cluster
-environment: development
+environment: dev
 ## The repository containing the tenant configuration
 tenant_repository: https://github.com/gambol99/platform-tenant.git
 ## The revision to use for the tenant repository
-tenant_revision: HEAD
+tenant_revision: main
 ## The path inside the tenant repository to use for the tenant cluster
 tenant_path: ""
+## The cost center to use for the tenant cluster
+tenant_cost_center: "123456"
 ## The repository containing the platform configuration
 platform_repository: https://github.com/gambol99/kubernetes-platform.git
 ## The revision to use for the platform repository
-platform_revision: v0.2.1
-## The path inside the platform repository
+platform_revision: main
+## The path to the kustomize overlay to use for the tenant cluster
 platform_path: ""
 ## The type of cluster we are (standalone, spoke or hub)
 cluster_type: standalone
 ## The name of the tenant
-tenant: tenant_name
+tenant: devolopment
 ## We use labels to enable/disable features in the tenant cluster
 labels:
+  enable_aws_ack_iam: "true"
   enable_cert_manager: "true"
-  enable_external_dns: "false"
   enable_external_secrets: "true"
+  enable_karpenter_nodepools: "true"
+  enable_kerpenter: "false"
   enable_kro: "true"
   enable_kyverno: "true"
   enable_metrics_server: "true"
+## Annotations are using for additional metadata about the tenant cluster
+annotations:
+  platform.local/tenant: tenant
+  region: eu-west-2

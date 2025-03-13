@@ -1,0 +1,45 @@
+---
+name: Release
+# yamllint disable-line rule:truthy
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+  id-token: write
+  packages: write
+
+jobs:
+  build:
+    name: Release
+    needs: e2e
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Previous Release
+        id: previous_release
+        run: |
+          LAST_TAG=$(git tag --sort=-version:refname | head -n 2 | tail -n 1)
+          echo "LAST_TAG=${LAST_TAG}" >> "${GITHUB_ENV}"
+      - name: Generate a changelog
+        uses: orhun/git-cliff-action@v3
+        with:
+          args: "--verbose ${{ env.LAST_TAG }}..HEAD"
+          config: .cliff/cliff.toml
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+        env:
+          OUTPUT: CHANGELOG.md
+          GITHUB_REPO: ${{ github.repository }}
+      - name: Create Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "${{ github.ref_name }}" \
+            --latest \
+            --notes-file CHANGELOG.md \
+            --title "Release ${{ github.ref_name }}"
